@@ -1,0 +1,19 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/media/templates/site/cassiopeia_roc/css"
+    },
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/media/templates/site/cassiopeia_roc/css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": true,
+  "liveSassCompile.settings.includeItems": [
+    "/media/templates/site/cassiopeia_roc/scss/template.scss",
+    "/media/templates/site/cassiopeia_roc/scss/template-rtl.scss"
+  ]
+}

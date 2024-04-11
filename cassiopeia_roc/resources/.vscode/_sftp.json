@@ -1,0 +1,17 @@
+{
+    "name": "domeinnaam.nl",
+    "host": "ftp.domeinnaam.nl",
+    "protocol": "ftp",
+    "port": 21,
+    "username": "xxxxxxxxx",
+    "password": "yyyyyyyyyyy",
+    "remotePath": "/domains/domeinnaam.nl/public_html",
+    "uploadOnSave": false,
+    "autoDelete": false,
+    "watcher": {
+        "files": "**",
+        "autoUpload": true,
+        "autoDelete": true
+    },
+    "ignore": ["configuration.php", ".htaccess", ".vscode", ".git", ".DS_Store", "node_modules", "cache"]
+}

@@ -1,0 +1,89 @@
+@import url("../../cassiopeia/css/template.min.css");
+@import url("user.css");
+
+html, body {
+    font-size: 16px !important;
+}
+
+.display-1 {
+    font-size: 3rem !important;
+}
+
+.display-2 {
+    font-size: 2.75rem !important;
+}
+.display-3 {
+    font-size: 2.5rem !important;
+}
+
+.display-4 {
+    font-size: 2.25rem !important;
+}
+
+.display-5 {
+    font-size: 2rem !important;
+}
+
+.display-6 {
+    font-size: 1.75rem !important;
+}
+
+.btn-light {
+    color: #000;
+    background-color: #e7e7e7 !important;
+    border-color: #e7e7e7 !important;
+}
+.btn-light:hover {
+    background-color: #d6d6d6 !important;
+    border-color: #d1d1d1 !important;
+}
+
+.btn-light:focus {
+    background-color: #d6d6d6 !important;
+    border-color: #d1d1d1 !important;
+}
+
+.text-light {
+    color: #ccc !important;
+    opacity: 1 !important;
+}
+
+.text-white,
+.link-white {
+    color: rgb(218, 218, 218) !important;
+    opacity: 1 !important;
+}
+
+.link-white:hover, .link-white:focus {
+    color: rgb(202, 202, 202) !important;
+}
+
+.btn-outline-light {
+    color: #e7e7e7 !important;
+    border-color: #e7e7e7 !important;
+}
+
+.btn-primary {
+    color: var(--btn-color) !important;
+    background-color: var(--btn-bg) !important;
+    border-color: var(--btn-border-color) !important;
+}
+
+hr[class].mce-item-pagebreak,
+hr[class].mce-item-readmore {
+    border: 1px dashed #383838 !important;
+    background-color: #d7d7d7 !important;
+}
+
+[data-mce-selected=inline-boundary] {
+    -webkit-box-shadow:inset 0px 0px 0px 2px #b4d7ff !important;
+    -moz-box-shadow:inset 0px 0px 0px 2px #b4d7ff !important;
+    box-shadow:inset 0px 0px 0px 2px #b4d7ff !important;
+    background-color: transparent !important;
+}
+
+.bg-white,
+.bg-light {
+    opacity: 1 !important;
+    background-color: #efefef !important;
+}

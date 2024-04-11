@@ -1,0 +1,1059 @@
+/* Template colors and reset colors
+------------------------------------------------------------------*/
+:root {
+  --cassiopeia-color-primary: rgb(236, 0, 140);
+  --primary: rgb(236, 0, 140);
+  --primary-rgb: 236, 0, 140;
+
+  --cassiopeia-color-link: rgb(236, 0, 140);
+  --link-color: rgb(236, 0, 140);
+  --link-color-rgb: 236, 0, 140;
+
+  --cassiopeia-color-hover: rgb(194, 0, 116);
+  --link-hover-color: rgb(194, 0, 116);
+  --link-hover-color-rgb: 194, 0, 116;
+
+  --site-grid-content-width: 1320px;
+
+  /* Reset border radius to default values */
+  --border-radius: 0.375rem;
+  --border-radius-sm: 0.25rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 1rem;
+  --border-radius-xxl: 2rem;
+  --border-radius-2xl: var(--border-radius-xxl);
+}
+
+.btn-primary {
+  --btn-bg: var(--primary);
+  --btn-border-color: var(--primary);
+  --btn-hover-bg: var(--cassiopeia-color-hover);
+  --btn-hover-border-color: var(--cassiopeia-color-hover);
+  --btn-focus-shadow-rgb: var(--primary-rgb);
+  --btn-active-bg: var(--primary);
+  --btn-disabled-bg: var(--primary);
+  --btn-disabled-border-color: var(--primary);
+}
+
+.btn-outline-primary {
+  --btn-color: var(--primary);
+  --btn-border-color: var(--primary);
+  --btn-hover-bg: var(--primary);
+  --btn-hover-border-color: var(--primary);
+  --btn-active-bg: var(--primary);
+  --btn-active-border-color: var(--primary);
+  --btn-disabled-color: var(--primary);
+  --btn-disabled-border-color: var(--primary);
+}
+
+.page-link.active, .active>.page-link {
+  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+h1, .h1 {
+  font-size: calc(1.35rem + 1.2vw);
+  /* font-size: calc(1.35rem + ((((2.25 - 1.35) * 16) / 1200) * 100vw)); */
+}
+
+@media (width >= 1200px) {
+  h1, .h1 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Change Site Grid layout
+------------------------------------------------------------------
+Set prefered grid width, number of columns and the gutter width.
+Make sure to multiply the grid template areas to match the number of columns
+1320px is the default content with of the Cassiopeia template */
+
+/* @supports (display: grid) {
+  .site-grid {
+    --prefered-grid-width: 1320px;
+    --number-of-columns: 6;
+    --gutterwidth: 2rem;
+    --gutterwidth-total: calc((var(--number-of-columns) - 1) * var(--gutterwidth));
+    --lanewidth: calc((var(--prefered-grid-width) - var(--gutterwidth-total)) / var(--number-of-columns));
+
+    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] minmax(0, 10rem) minmax(0, 10rem) minmax(0, 20rem) minmax(0, 33.5rem) [main-end] minmax(0, 1fr) [full-end];
+
+    grid-template-areas: ". head head head head head head ."
+    ". banner banner banner banner banner banner ."
+    ". top-a top-a top-a top-a top-a top-a ."
+    ". top-b top-b top-b top-b top-b top-b ."
+    ". comp comp comp comp comp comp ."
+    ". side-l side-l side-l side-l side-l side-l ."
+    ". side-r side-r side-r side-r side-r side-r ."
+    ". bot-a bot-a bot-a bot-a bot-a bot-a ."
+    ". bot-b bot-b bot-b bot-b bot-b bot-b ."
+    ". footer footer footer footer footer footer ."
+    ". debug debug debug debug debug debug .";
+
+    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(var(--number-of-columns), minmax(0, var(--lanewidth))) [main-end] minmax(0, 1fr) [full-end];
+    grid-gap: 0 var(--gutterwidth);
+  }
+
+  @media (width >= 992px) {
+    .site-grid {
+      grid-template-areas: ". head head head head head head ."
+        ". banner banner banner banner banner banner ."
+        ". top-a top-a top-a top-a top-a top-a ."
+        ". top-b top-b top-b top-b top-b top-b ."
+        ". side-l comp comp comp side-r side-r ."
+        ". bot-a bot-a bot-a bot-a bot-a bot-a ."
+        ". bot-b bot-b bot-b bot-b bot-b bot-b ."
+        ". footer footer footer footer footer footer ."
+        ". debug debug debug debug debug debug .";
+    }
+  }
+} */
+
+/* Style and fix links with no class
+------------------------------------------------------------------*/
+a:not([class]) {
+  text-decoration-color: var(--black);
+  text-decoration-thickness: .1em;
+  text-underline-offset: .4em;
+  text-decoration-style: dotted;
+}
+
+a:hover:not([class]) {
+  color: rgb(var(--link-color-rgb));
+}
+
+/* Make scroll to top always visible
+------------------------------------------------------------------*/
+.back-to-top-link {
+  position: fixed;
+}
+
+/* Site grid top margin
+------------------------------------------------------------------*/
+.site-grid > .grid-child {
+  margin-top: 2rem;
+}
+
+/* Styling header with menu
+------------------------------------------------------------------*/
+.container-header {
+  box-shadow: none;
+  border-bottom: 1px solid var(--gray-200);
+  transition: box-shadow .25s ease-in-out;
+  background: var(--white);
+  padding-block: .25rem;
+  min-height: 72px;
+}
+
+.container-header.sticking {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (width <= 991.98px) {
+  .container-header {
+    position: sticky !important;
+  }
+}
+
+.container-header .container-nav {
+  background-color: var(--white);
+  color: var(--body-color);
+  padding-bottom: .5em;
+}
+
+.container-header nav.navbar {
+  width: 100%;
+  max-width: var(--site-grid-content-width);
+  margin-inline: auto;
+}
+
+/* Align menu items right */
+@media (width >= 992px) {
+  .container-header .mod-menu {
+    justify-content: end;
+  }
+
+  .metismenu.mod-menu .metismenu-item>ul {
+    right: 1.5rem;
+  }
+}
+
+/* Fix the default layout dropdown will not show */
+.container-header .mod-list.mod-menu:not(.mod-menu_dropdown-metismenu) .parent > ul {
+  display: block;
+}
+
+.container-header .mod-list.mod-menu:not(.mod-menu_dropdown-metismenu) .mod-menu__heading .nav-header {
+  font-weight: bold;
+}
+
+/* Style the template brand logo
+------------------------------------------------------------------*/
+.container-header .navbar-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.25;
+  font-size: unset;
+  margin: 0;
+  padding: 0;
+}
+
+.container-header .navbar-brand a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.container-header .navbar-brand .site-description {
+  color: var(--black);
+  font-weight: bold;
+  text-wrap: nowrap;
+}
+
+/* Menu colors
+------------------------------------------------------------------*/
+.container-header .mod-menu {
+  color: currentColor;
+}
+
+.metismenu.mod-menu > .metismenu-item > a {
+  line-height: 2;
+}
+
+/* Menu links */
+.container-header .mod-menu a,
+.container-header .mod-menu button {
+  color: var(--body-color) !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.container-header .mod-menu .active > a,
+.container-header .mod-menu .active > button {
+  color: var(--primary) !important;
+}
+
+.container-header .mod-menu a:hover,
+.container-header .mod-menu a:focus,
+.container-header .mod-menu button:hover,
+.container-header .mod-menu button:focus {
+  color: var(--primary) !important;
+}
+
+.container-header .metismenu > li > a:hover:after,
+.container-header .metismenu > li > button:hover:before,
+.container-header .metismenu > li.active > a:after,
+.container-header .metismenu > li.active > button:before {
+    background: var(--primary);
+}
+
+/* Menu mobile toggler
+------------------------------------------------------------------*/
+.container-header .navbar-toggler {
+  color: var(--primary);
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  margin-inline-start: auto;
+}
+
+/* Style dropdown on offcanvas mobile
+------------------------------------------------------------------*/
+@media (max-width: 991.98px) {
+  .container-header .mod-menu {
+    margin-top: 1.5rem;
+  }
+
+  /* Reset for offcanvas menu layout override */
+  .container-header .offcanvas .mod-menu {
+    margin-top: 0;
+  }
+
+  .metismenu.mod-menu .metismenu-item > ul {
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+  }
+}
+
+/* Module mod-finder__search
+------------------------------------------------------------------*/
+.mod-finder__search .awesomplete {
+  width: 100%;
+}
+
+.mod-finder__search .awesomplete > input {
+  max-width: unset;
+}
+
+/* Module mod_articles_new module class suffix: usp-blocks
+------------------------------------------------------------------*/
+.usp-blocks p {
+  line-height: 1.75;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+.usp-blocks h2 {
+  line-height: 1.75;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.usp-blocks .newsflash-horiz li {
+  border: none;
+  padding: 1.75rem;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
+  transition: all 0.3s ease-in-out;
+  border-radius: .5rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.usp-blocks .newsflash-horiz li:hover {
+  color: var(--white);
+}
+
+.usp-blocks .newsflash-horiz li::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 100%;
+  transition: all 0.3s;
+  z-index: -1;
+  display: block;
+}
+
+.usp-blocks .newsflash-horiz li:hover::before {
+  background: var(--primary);
+  top: 0;
+  border-radius: 0px;
+}
+
+/* Topbar Styling for links
+------------------------------------------------------------------*/
+.container-topbar p {
+  margin: 0;
+}
+
+.text-white a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.text-white a:hover,
+.text-white a:focus {
+  color: var(--gray-100);
+}
+
+/* Single article layout
+------------------------------------------------------------------*/
+/* Make single articles more readable */
+.view-article .container-component {
+  max-width: 750px;
+}
+
+body.has-sidebar-left .site-grid .container-component,
+body.has-sidebar-right .site-grid .container-component {
+  margin-inline: 0;
+}
+
+.view-article main {
+  margin-top: 2rem;
+}
+
+/* Create full blead background color hack
+------------------------------------------------------------------*/
+.container-top-b {
+  background-color: var(--gray-100);
+  box-shadow: 0 0 0 100vmax var(--gray-100);
+  clip-path: inset(0 -100vmax);
+}
+
+.container-bottom-b {
+  background-color: var(--gray-100);
+  box-shadow: 0 0 0 100vmax var(--gray-100);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Article categorie blog layout
+------------------------------------------------------------------*/
+.article-info dd {
+   margin: 0;
+   font-size: .85em;
+}
+
+.blog-item h2.item-title,
+.blog-item .page-header h2  {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+/* Reverse link underline */
+.blog-item h2.item-title a,
+.blog-item .page-header a  {
+  text-decoration: none;
+}
+
+.blog-item h2.item-title a:hover,
+.blog-item .page-header a:hover {
+  text-decoration: underline;
+}
+
+.mod-articlesnews__item .newsflash-title {
+  font-size: 1.12rem;
+}
+
+.blog-item .item-image img {
+  aspect-ratio: 2/1;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Footer
+------------------------------------------------------------------*/
+.footer .footer {
+  background: none;
+}
+
+.footer .grid-child {
+  align-items: start;
+}
+
+.footer a:not(.btn),
+.footer .btn-link {
+  color: currentColor;
+  text-decoration-color: var(--black) !important;
+  text-decoration-thickness: .1em !important;
+  text-underline-offset: .4em !important;
+  text-decoration-style: dotted !important;
+}
+
+.footer .mod-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Breadcrumbs
+------------------------------------------------------------------*/
+.breadcrumb {
+  background: none;
+  font-size: .85rem;
+  padding-inline: 0 !important;
+  border-bottom: 1px dotted var(--gray-300);
+}
+
+/* Login page
+------------------------------------------------------------------*/
+.com-users-login {
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
+
+/* Module Articles Category
+------------------------------------------------------------------*/
+a.mod-articles-category-title {
+  text-decoration: none;
+}
+
+a.mod-articles-category-title:hover {
+  text-decoration-style: dotted;
+  color: rgb(var(--link-color-rgb));
+  text-decoration-color: var(--black);
+  text-decoration-thickness: .1em;
+  text-underline-offset: .3em;
+  text-decoration: underline;
+}
+
+/* Utility / Helper Classes
+------------------------------------------------------------------*/
+/* Helper class makes element 1/1 ratio for images or other elements */
+.aspect-ratio-1-1,
+.aspect-ratio-1-1 img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* Helper class makes element 3/2 ratio for images or other elements */
+.aspect-ratio-2-1,
+.aspect-ratio-2-1 img {
+  aspect-ratio: 2/1;
+  object-fit: cover;
+}
+
+/* Helper class makes element 4/3 ratio for images or other elements */
+.aspect-ratio-4-3,
+.aspect-ratio-4-3 img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+/* Make component smaller for readability */
+.small-component {
+
+}
+
+/* Menu item class: center-title (center the first heading title on the featured of blog layout page) */
+.center-article-title .com-content-article > .page-header:nth-of-type(1),
+.center-blog-title .blog-featured > .page-header:nth-of-type(1),
+.center-blog-title .com-content-category-blog > .page-header:nth-of-type(1) {
+  text-align: center;
+  margin-block: 2rem;
+}
+
+/*
+Breakout of the site-grid to make module full body width (using CSS container queries)
+- Module class: breakout (Module gets spanned full body width)
+- Module class: keep-content-width (center content block and make same width as site grid. Combine with breakout)
+- Example module class suffix for single module: breakout keep-content-width bg-light
+*/
+.site-grid {
+  container-type: inline-size;
+}
+
+.breakout {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.breakout.keep-content-width {
+  > * {
+    width: 100%;
+    max-width: calc(var(--site-grid-content-width) + 2rem); /* Content width + 2 rem for margin left and right */
+    padding-inline: 1rem;
+    margin-inline: auto;
+  }
+}
+
+/* Nested CSS example */
+/* Menu item class voor articles category blog layout: overlay-bloglayout */
+.overlay-bloglayout {
+
+  .blog-item {
+    position: relative;
+
+    &:after {
+      z-index: 1;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(var(--primary-rgb), .6);
+      opacity: 0;
+      transition: opacity .25s ease-in;
+    }
+
+    p {
+      display: none;
+    }
+
+    .item-image {
+
+      img {
+        aspect-ratio: 1/1.1;
+        filter:grayscale(100%);
+      }
+
+      a:after {
+        z-index: 3;
+        content: "";
+        position: absolute;
+        inset: 0;
+      }
+    }
+
+    .item-content {
+      position: absolute;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+      opacity: 1;
+      min-height: 120px;
+      bottom: 0;
+      color: var(--white);
+      z-index: 2;
+      transition: padding .25s ease-in;
+    }
+
+    &:hover {
+
+      &:after {
+        opacity: 1;
+      }
+
+      .item-content {
+        padding-bottom: 50px;
+      }
+    }
+
+    .text-muted {
+      color: var(--white) !important;
+    }
+
+    a {
+      color: var(--white);
+    }
+  }
+}
+
+/* Add CSS grid for flexible column layout
+------------------------------------------------------------------*/
+.grid,
+.container-top-a,
+.container-top-b,
+.container-bottom-a,
+.container-bottom-b {
+  display: grid;
+  grid-template-rows: repeat(var(--rows, 1), 1fr);
+  grid-template-columns: repeat(var(--columns, 12), 1fr);
+  gap: var(--gap, 1em);
+}
+
+/* Make grid-row same width as site-grid */
+.grid-row,
+.container-xxl {
+  width: 100%;
+  max-width: calc(var(--site-grid-content-width) + 2rem); /* Content width + 2 rem for margin left and right */
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.grid > *,
+.container-top-a > *,
+.container-top-b > *,
+.container-bottom-a > *,
+.container-bottom-b > * {
+  grid-column: auto/span 12;
+}
+.g-col-1 {
+  grid-column: auto/span 1;
+}
+.g-col-2 {
+  grid-column: auto/span 2;
+}
+.g-col-3 {
+  grid-column: auto/span 3;
+}
+.g-col-4 {
+  grid-column: auto/span 4;
+}
+.g-col-5 {
+  grid-column: auto/span 5;
+}
+.g-col-6 {
+  grid-column: auto/span 6;
+}
+.g-col-7 {
+  grid-column: auto/span 7;
+}
+.g-col-8 {
+  grid-column: auto/span 8;
+}
+.g-col-9 {
+  grid-column: auto/span 9;
+}
+.g-col-10 {
+  grid-column: auto/span 10;
+}
+.g-col-11 {
+  grid-column: auto/span 11;
+}
+.g-col-12 {
+  grid-column: auto/span 12;
+}
+.g-start-1 {
+  grid-column-start: 1;
+}
+.g-start-2 {
+  grid-column-start: 2;
+}
+.g-start-3 {
+  grid-column-start: 3;
+}
+.g-start-4 {
+  grid-column-start: 4;
+}
+.g-start-5 {
+  grid-column-start: 5;
+}
+.g-start-6 {
+  grid-column-start: 6;
+}
+.g-start-7 {
+  grid-column-start: 7;
+}
+.g-start-8 {
+  grid-column-start: 8;
+}
+.g-start-9 {
+  grid-column-start: 9;
+}
+.g-start-10 {
+  grid-column-start: 10;
+}
+.g-start-11 {
+  grid-column-start: 11;
+}
+@media (min-width: 576px) {
+  .g-col-sm-1 {
+    grid-column: auto/span 1;
+  }
+  .g-col-sm-2 {
+    grid-column: auto/span 2;
+  }
+  .g-col-sm-3 {
+    grid-column: auto/span 3;
+  }
+  .g-col-sm-4 {
+    grid-column: auto/span 4;
+  }
+  .g-col-sm-5 {
+    grid-column: auto/span 5;
+  }
+  .g-col-sm-6 {
+    grid-column: auto/span 6;
+  }
+  .g-col-sm-7 {
+    grid-column: auto/span 7;
+  }
+  .g-col-sm-8 {
+    grid-column: auto/span 8;
+  }
+  .g-col-sm-9 {
+    grid-column: auto/span 9;
+  }
+  .g-col-sm-10 {
+    grid-column: auto/span 10;
+  }
+  .g-col-sm-11 {
+    grid-column: auto/span 11;
+  }
+  .g-col-sm-12 {
+    grid-column: auto/span 12;
+  }
+  .g-start-sm-1 {
+    grid-column-start: 1;
+  }
+  .g-start-sm-2 {
+    grid-column-start: 2;
+  }
+  .g-start-sm-3 {
+    grid-column-start: 3;
+  }
+  .g-start-sm-4 {
+    grid-column-start: 4;
+  }
+  .g-start-sm-5 {
+    grid-column-start: 5;
+  }
+  .g-start-sm-6 {
+    grid-column-start: 6;
+  }
+  .g-start-sm-7 {
+    grid-column-start: 7;
+  }
+  .g-start-sm-8 {
+    grid-column-start: 8;
+  }
+  .g-start-sm-9 {
+    grid-column-start: 9;
+  }
+  .g-start-sm-10 {
+    grid-column-start: 10;
+  }
+  .g-start-sm-11 {
+    grid-column-start: 11;
+  }
+}
+@media (min-width: 768px) {
+  .g-col-md-1 {
+    grid-column: auto/span 1;
+  }
+  .g-col-md-2 {
+    grid-column: auto/span 2;
+  }
+  .g-col-md-3 {
+    grid-column: auto/span 3;
+  }
+  .g-col-md-4 {
+    grid-column: auto/span 4;
+  }
+  .g-col-md-5 {
+    grid-column: auto/span 5;
+  }
+  .g-col-md-6 {
+    grid-column: auto/span 6;
+  }
+  .g-col-md-7 {
+    grid-column: auto/span 7;
+  }
+  .g-col-md-8 {
+    grid-column: auto/span 8;
+  }
+  .g-col-md-9 {
+    grid-column: auto/span 9;
+  }
+  .g-col-md-10 {
+    grid-column: auto/span 10;
+  }
+  .g-col-md-11 {
+    grid-column: auto/span 11;
+  }
+  .g-col-md-12 {
+    grid-column: auto/span 12;
+  }
+  .g-start-md-1 {
+    grid-column-start: 1;
+  }
+  .g-start-md-2 {
+    grid-column-start: 2;
+  }
+  .g-start-md-3 {
+    grid-column-start: 3;
+  }
+  .g-start-md-4 {
+    grid-column-start: 4;
+  }
+  .g-start-md-5 {
+    grid-column-start: 5;
+  }
+  .g-start-md-6 {
+    grid-column-start: 6;
+  }
+  .g-start-md-7 {
+    grid-column-start: 7;
+  }
+  .g-start-md-8 {
+    grid-column-start: 8;
+  }
+  .g-start-md-9 {
+    grid-column-start: 9;
+  }
+  .g-start-md-10 {
+    grid-column-start: 10;
+  }
+  .g-start-md-11 {
+    grid-column-start: 11;
+  }
+}
+@media (min-width: 992px) {
+  .g-col-lg-1 {
+    grid-column: auto/span 1;
+  }
+  .g-col-lg-2 {
+    grid-column: auto/span 2;
+  }
+  .g-col-lg-3 {
+    grid-column: auto/span 3;
+  }
+  .g-col-lg-4 {
+    grid-column: auto/span 4;
+  }
+  .g-col-lg-5 {
+    grid-column: auto/span 5;
+  }
+  .g-col-lg-6 {
+    grid-column: auto/span 6;
+  }
+  .g-col-lg-7 {
+    grid-column: auto/span 7;
+  }
+  .g-col-lg-8 {
+    grid-column: auto/span 8;
+  }
+  .g-col-lg-9 {
+    grid-column: auto/span 9;
+  }
+  .g-col-lg-10 {
+    grid-column: auto/span 10;
+  }
+  .g-col-lg-11 {
+    grid-column: auto/span 11;
+  }
+  .g-col-lg-12 {
+    grid-column: auto/span 12;
+  }
+  .g-start-lg-1 {
+    grid-column-start: 1;
+  }
+  .g-start-lg-2 {
+    grid-column-start: 2;
+  }
+  .g-start-lg-3 {
+    grid-column-start: 3;
+  }
+  .g-start-lg-4 {
+    grid-column-start: 4;
+  }
+  .g-start-lg-5 {
+    grid-column-start: 5;
+  }
+  .g-start-lg-6 {
+    grid-column-start: 6;
+  }
+  .g-start-lg-7 {
+    grid-column-start: 7;
+  }
+  .g-start-lg-8 {
+    grid-column-start: 8;
+  }
+  .g-start-lg-9 {
+    grid-column-start: 9;
+  }
+  .g-start-lg-10 {
+    grid-column-start: 10;
+  }
+  .g-start-lg-11 {
+    grid-column-start: 11;
+  }
+}
+@media (min-width: 1200px) {
+  .g-col-xl-1 {
+    grid-column: auto/span 1;
+  }
+  .g-col-xl-2 {
+    grid-column: auto/span 2;
+  }
+  .g-col-xl-3 {
+    grid-column: auto/span 3;
+  }
+  .g-col-xl-4 {
+    grid-column: auto/span 4;
+  }
+  .g-col-xl-5 {
+    grid-column: auto/span 5;
+  }
+  .g-col-xl-6 {
+    grid-column: auto/span 6;
+  }
+  .g-col-xl-7 {
+    grid-column: auto/span 7;
+  }
+  .g-col-xl-8 {
+    grid-column: auto/span 8;
+  }
+  .g-col-xl-9 {
+    grid-column: auto/span 9;
+  }
+  .g-col-xl-10 {
+    grid-column: auto/span 10;
+  }
+  .g-col-xl-11 {
+    grid-column: auto/span 11;
+  }
+  .g-col-xl-12 {
+    grid-column: auto/span 12;
+  }
+  .g-start-xl-1 {
+    grid-column-start: 1;
+  }
+  .g-start-xl-2 {
+    grid-column-start: 2;
+  }
+  .g-start-xl-3 {
+    grid-column-start: 3;
+  }
+  .g-start-xl-4 {
+    grid-column-start: 4;
+  }
+  .g-start-xl-5 {
+    grid-column-start: 5;
+  }
+  .g-start-xl-6 {
+    grid-column-start: 6;
+  }
+  .g-start-xl-7 {
+    grid-column-start: 7;
+  }
+  .g-start-xl-8 {
+    grid-column-start: 8;
+  }
+  .g-start-xl-9 {
+    grid-column-start: 9;
+  }
+  .g-start-xl-10 {
+    grid-column-start: 10;
+  }
+  .g-start-xl-11 {
+    grid-column-start: 11;
+  }
+}
+@media (min-width: 1400px) {
+  .g-col-xxl-1 {
+    grid-column: auto/span 1;
+  }
+  .g-col-xxl-2 {
+    grid-column: auto/span 2;
+  }
+  .g-col-xxl-3 {
+    grid-column: auto/span 3;
+  }
+  .g-col-xxl-4 {
+    grid-column: auto/span 4;
+  }
+  .g-col-xxl-5 {
+    grid-column: auto/span 5;
+  }
+  .g-col-xxl-6 {
+    grid-column: auto/span 6;
+  }
+  .g-col-xxl-7 {
+    grid-column: auto/span 7;
+  }
+  .g-col-xxl-8 {
+    grid-column: auto/span 8;
+  }
+  .g-col-xxl-9 {
+    grid-column: auto/span 9;
+  }
+  .g-col-xxl-10 {
+    grid-column: auto/span 10;
+  }
+  .g-col-xxl-11 {
+    grid-column: auto/span 11;
+  }
+  .g-col-xxl-12 {
+    grid-column: auto/span 12;
+  }
+  .g-start-xxl-1 {
+    grid-column-start: 1;
+  }
+  .g-start-xxl-2 {
+    grid-column-start: 2;
+  }
+  .g-start-xxl-3 {
+    grid-column-start: 3;
+  }
+  .g-start-xxl-4 {
+    grid-column-start: 4;
+  }
+  .g-start-xxl-5 {
+    grid-column-start: 5;
+  }
+  .g-start-xxl-6 {
+    grid-column-start: 6;
+  }
+  .g-start-xxl-7 {
+    grid-column-start: 7;
+  }
+  .g-start-xxl-8 {
+    grid-column-start: 8;
+  }
+  .g-start-xxl-9 {
+    grid-column-start: 9;
+  }
+  .g-start-xxl-10 {
+    grid-column-start: 10;
+  }
+  .g-start-xxl-11 {
+    grid-column-start: 11;
+  }
+}

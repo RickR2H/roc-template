@@ -1,0 +1,92 @@
+// Override default Cassiopeia colors
+//-----------------------------------------------------------------------
+$standard-color-primary:              #0EA2BD;
+$standard-color-link:                 $standard-color-primary;
+$standard-color-hover:                darken($standard-color-primary, 10%);
+
+$primary:                             $standard-color-primary;
+$secondary:                           hsl(0, 0%, 90%); // Original: hsl(210, 7%, 46%);
+$success:                             hsl(120, 32%, 39%);
+$info:                                hsl(245, 17%, 29%); // Original: hsl(207, 49%, 37%);
+$warning:                             hsl(27, 98%, 54%);
+$danger:                              hsl(341, 86%, 40%); // Original: hsl(3, 75%, 37%);
+$light:                               hsl(189, 100%, 93%);
+$dark:                                hsl(244, 18%, 17%); // Original: hsl(0, 0%, 12%);
+
+$theme-colors: (
+  primary:                            $standard-color-primary,
+  secondary:                          $secondary,
+  success:                            $success,
+  info:                               $info,
+  warning:                            $warning,
+  danger:                             $danger,
+  light:                              $light,
+  dark:                               $dark
+);
+
+// Set Bootstrap options
+//-----------------------------------------------------------------------
+$enable-negative-margins:             true; // Set negative margins to true
+$enable-shadows:                      true; // Set the shadow classes to true
+$enable-grid-classes:                 true; // Enable default bootstrap grid
+$enable-cssgrid:                      true; // Enable Bootstrap CSS grid varaibles
+
+// Create some extra margin / padding utilities
+//-----------------------------------------------------------------------
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 4,
+  7: $spacer * 5,
+  8: $spacer * 6,
+  9: $spacer * 7
+);
+
+// Text styling
+//-----------------------------------------------------------------------
+$font-size-root:              null;
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+
+$line-height-base:            1.75;
+$line-height-sm:              1.5;
+$line-height-lg:              2.25;
+
+// Headings styling
+//-----------------------------------------------------------------------
+$h1-font-size:                $font-size-base * 2;
+$h2-font-size:                $font-size-base * 1.75;
+$h3-font-size:                $font-size-base * 1.5;
+$h4-font-size:                $font-size-base * 1.25;
+$h5-font-size:                $font-size-base * 1.25;
+$h6-font-size:                $font-size-base;
+
+$headings-margin-bottom:      1rem;
+$headings-font-weight:        400;
+$headings-line-height:        1.5;
+$headings-color:              inherit;
+
+// Fix Cassiopeia Background images
+//-----------------------------------------------------------------------
+$form-select-indicator:             url("../../cassiopeia/images/select-bg.svg");
+$form-select-indicator-rtl:         url("../../cassiopeia/images/select-bg-rtl.svg");
+$form-select-indicator-active:      url("../../cassiopeia/images/select-bg.svg");
+$form-select-indicator-active-rtl:  url("../../cassiopeia/images/select-bg-rtl.svg");
+
+// Override the default Cassiopeia CSS custom properties
+//-----------------------------------------------------------------------
+:root {
+  --cassiopeia-color-primary: #{$standard-color-primary};
+  --cassiopeia-color-link: #{$standard-color-link};
+  --cassiopeia-color-hover: #{$standard-color-hover};
+}
+
+// Import the default Cassiopeia template.scss
+//-----------------------------------------------------------------------
+@import "../../cassiopeia/scss/template";
+
+@import "mystyle";

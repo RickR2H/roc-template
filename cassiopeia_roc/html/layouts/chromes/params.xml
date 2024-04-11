@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fields name="params">
+		<fieldset
+			name="extrasettings"
+			label="Extra settings">
+            <!-- Layout: mod_custom grid.php -->
+            <field
+                name="gridwrapperclass"
+                type="text"
+                default="grid"
+                showon="layout:cassiopeia_roc:grid"
+                label="Grid Wrapper Classes"
+            />
+            <field
+                name="individualcolumnwrapperclass"
+                type="text"
+                showon="layout:cassiopeia_roc:grid"
+                label="Default Column classes"
+                description=""
+                default="g-col-6"
+            />
+            <field
+                name="columns"
+                type="subform"
+                label="Columns"
+                required="false"
+                multiple="true"
+                showon="layout:cassiopeia_roc:grid">
+                <form>
+                    <field
+                        name="showfields"
+                        type="list"
+                        label="Show fields"
+                        description="Show and hide fields in this block"
+                        default="1">
+                        <option value="0">JNO</option>
+                        <option value="1">JYES</option>
+                    </field>
+                    <field
+                        name="columncomment"
+                        type="text"
+                        label="Comments"
+                    />
+                    <field
+                        name="columnclasses"
+                        type="text"
+                        label="Column classes"
+                        description="Add classes to the grid columns"
+                        showon="showfields:1"
+                    />
+                    <field
+                        name="columnattrib"
+                        type="text"
+                        label="Column attributes"
+                        description="Add custom atrributes like: style=&quot;background-color: blue;&quot;"
+                        default=""
+                        showon="showfields:1"
+                    />
+                    <field
+                        name="columncontentclass"
+                        type="text"
+                        label="Content block classes"
+                        description="Add classes to the content block"
+                        default=""
+                        showon="showfields:1"
+                    />
+
+                    <field
+                        name="text"
+                        type="editor"
+                        label="Text"
+                        filter="raw"
+                        buttons="true"
+                    />
+                </form>
+            </field>
+		</fieldset>
+	</fields>
+</form>
