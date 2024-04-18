@@ -25,10 +25,13 @@ $bgImage    = Uri::root(true) . '/' . HTMLHelper::_('cleanImageURL', $params->ge
 $wa = $app->getDocument()->getWebAssetManager();
 
 $script = <<<SCRIPT
-    window.addEventListener('DOMContentLoaded', () => {
-        var images = document.querySelectorAll('.parallax-image');
-        new simpleParallax(images);
-    })
+window.addEventListener('DOMContentLoaded', () => {
+    var images = document.querySelectorAll('.parallax-image');
+    new simpleParallax(images, {
+        orientation: 'up left', // up, right, down, left, up left, up right, down left, left right
+        scale: 1.5
+    });
+})
 SCRIPT;
 
 $style = <<<CSS

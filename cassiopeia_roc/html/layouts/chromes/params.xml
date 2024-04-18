@@ -4,6 +4,34 @@
 		<fieldset
 			name="extrasettings"
 			label="Extra settings">
+            <!-- Layout: mod_custom custom-html.php -->
+            <field
+                name="customHtml"
+                type="editor"
+                label="Custom HTML"
+                description=""
+                editor="codemirror|none"
+                filter="raw"
+                buttons="false"
+                showon="layout:cassiopeia_roc:custom-html" />
+            <field
+                name="customCss"
+                type="editor"
+                label="Custom CSS"
+                description=""
+                editor="codemirror|none"
+                filter="raw"
+                buttons="false"
+                showon="layout:cassiopeia_roc:custom-html" />
+            <field
+                name="customJavascript"
+                type="editor"
+                label="Custom Javascript"
+                description="Wrap your code width EventListener(DOMContentLoaded) Eaxample:&lt;pre&gt;window.addEventListener('DOMContentLoaded', () => {&lt;br&gt;&lt;strong&gt;  // Your Custom Javascript code&lt;/strong&gt;&lt;br&gt;})&lt;/pre&gt;"
+                editor="codemirror|none"
+                filter="raw"
+                buttons="false"
+                showon="layout:cassiopeia_roc:custom-html" />
             <!-- Layout: mod_custom grid.php -->
             <field
                 name="gridwrapperclass"

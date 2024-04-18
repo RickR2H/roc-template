@@ -96,8 +96,6 @@ $wrapper = $this->params->get('fluidContainer') ? 'wrapper-fluid' : 'wrapper-sta
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
-$stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
-
 // Defer font awesome
 $wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
 
@@ -129,7 +127,7 @@ $errorCode = $this->error->getCode();
         </div>
     <?php endif; ?>
 
-    <header class="header container-header full-width d-flex align-items-center<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>"><!-- Added: d-flex align-items-center -->
+    <header class="header container-header full-width d-flex align-items-center<?php echo $this->params->get('stickyHeader') ? ' position-sticky sticky-top' : ''; ?>"><!-- Added: d-flex align-items-center -->
 
         <!-- previous position topbar. Moved above header -->
 
@@ -175,47 +173,34 @@ $errorCode = $this->error->getCode();
             <?php if ($this->countModules('error-' . $errorCode)) : ?>
                 <div class="container">
                     <jdoc:include type="message" />
-                    <div class="d-flex flex-column align-items-center justify-content-center">
-                        <h1 class="display-1"><?php echo $this->error->getCode(); ?></h1>
-                        <p class="display-4"><?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?></p>
-
+                    <main>
                         <jdoc:include type="modules" name="error-<?php echo $errorCode; ?>" style="none" />
-
-                        <p><strong><?php echo Text::_('JERROR_LAYOUT_ERROR_HAS_OCCURRED_WHILE_PROCESSING_YOUR_REQUEST'); ?></strong></p>
-                        <p><?php echo Text::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
-                    <ul>
-                        <li><?php echo Text::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
-                        <li><?php echo Text::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
-                        <li><?php echo Text::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
-                        <li><?php echo Text::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
-                    </ul>
-                    <p><?php echo Text::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
-                    <p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-secondary"><span class="icon-home" aria-hidden="true"></span> <?php echo Text::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
-                    <hr>
-                    <p><?php echo Text::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
-                    </div>
+                    </main>
                 </div>
             <?php else : ?>
-                <div class="container">
+            <h1 class="page-header display-3"><?php echo $this->error->getCode(); ?> <?php echo Text::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
+            <div class="card">
+                <div class="card-body">
                     <jdoc:include type="message" />
-                    <div class="d-flex flex-column align-items-center justify-content-center">
-                        <h1 class="display-1"><?php echo $this->error->getCode(); ?></h1>
-                        <p class="display-4"><?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?></p>
-                        <jdoc:include type="modules" name="error-<?php echo $errorCode; ?>" style="none" />
+                    <main>
                         <p><strong><?php echo Text::_('JERROR_LAYOUT_ERROR_HAS_OCCURRED_WHILE_PROCESSING_YOUR_REQUEST'); ?></strong></p>
-                    <p><?php echo Text::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
-                    <ul>
-                        <li><?php echo Text::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
-                        <li><?php echo Text::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
-                        <li><?php echo Text::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
-                        <li><?php echo Text::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
-                    </ul>
-                    <p><?php echo Text::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
-                    <p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-secondary"><span class="icon-home" aria-hidden="true"></span> <?php echo Text::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
-                    <hr>
-                    <p><?php echo Text::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
-                    </div>
+                        <p><?php echo Text::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
+                        <ul>
+                            <li><?php echo Text::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
+                            <li><?php echo Text::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
+                            <li><?php echo Text::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
+                            <li><?php echo Text::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
+                        </ul>
+                        <p><?php echo Text::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
+                        <p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-secondary"><span class="icon-home" aria-hidden="true"></span> <?php echo Text::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
+                        <hr>
+                        <p><?php echo Text::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
+                        <blockquote>
+                            <span class="badge bg-secondary"><?php echo $this->error->getCode(); ?></span> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?>
+                        </blockquote>
+                    </main>
                 </div>
+            </div>
             <?php endif; ?>
             <?php if ($this->debug) : ?>
                 <div>
