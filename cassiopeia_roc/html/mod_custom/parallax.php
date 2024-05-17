@@ -64,9 +64,7 @@ $wa->registerAndUseScript('simpleParallax', 'https://cdn.jsdelivr.net/npm/simple
     ->addInlineScript($script, ['name' => 'simpleParallaxActive'])
     ->addInlineStyle($style, ['name' => 'module' . $module->id]);
 ?>
-<div
-    class="mod-custom custom simple-parallax"
-    id="<?php echo $modId; ?>">
+<div class="mod-custom custom simple-parallax" id="<?php echo $modId; ?>">
     <img class="parallax-image object-fit-cover w-100" src="<?php echo $bgImage; ?>" alt="" style="height: 600px;" loading="lazy">
     <div class="overlay d-flex align-items-center justify-content-center">
         <div class="overlay-inner">

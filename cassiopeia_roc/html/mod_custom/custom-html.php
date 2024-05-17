@@ -46,4 +46,3 @@ if ($params->get('backgroundimage')) {
         <?php echo $html; ?>
     <?php endif; ?>
 </div>
-
