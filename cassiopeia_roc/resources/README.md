@@ -362,9 +362,29 @@ Add the following line to the templateDetails.xml to load the local font
 - Select the style in the template "Color Theme" settings
 - Note: user.css will override styling this file
 
-## References
+## External resources to create a template / overrides
 
 - https://magazine.joomla.org/all-issues/february-2022/joomla-4-cassiopeia-template-a-bunch-of-tips-tricks
 - https://coolcat-creations.com/en/blog/customize-your-cassiopeia-template
 
-- background color
+### Snippets / Designs
+
+- https://bootdey.com/bootstrap-snippets (Bootstrap code snippets)
+- https://freefrontend.dev/code/bootstrap (Bootstrap code snippets)
+- https://bootstrapmade.com (Bootstrap template examples)
+- https://mobirise.com (Design builder based on Bootstrap)
+
+### Generators HTML / CSS
+
+- https://animista.net
+- https://webcode.tools
+  https://www.toptal.com/developers/css3maker
+
+### Images / Graphics
+
+- https://undraw.co/ (SVG)
+- https://lottiefiles.com (animation)
+
+### Libraries
+
+-https://michalsnik.github.io/aos

@@ -104,6 +104,7 @@ if ($animation) {
             class="<?php echo $gridwrapperclass; ?> mod-custom grid-wrapper"
             style="<?php echo $gridcolumnsProp . $gridrowsProp . $gridgapProp; ?>">
             <?php foreach ($columns as $index => $column) : ?>
+
                 <?php $column->columnclasses = $column->columnclasses ? ' ' . $column->columnclasses : ''; ?>
                 <div class="<?php echo $index . ' ' . $columnwrapperclass . $column->columnclasses; ?>" <?php if ($animation) : ?>
                     <?php echo $column->animationtype ? ' data-aos="' . $column->animationtype . '"' : ''; ?>

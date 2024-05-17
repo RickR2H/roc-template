@@ -1,3 +1,8 @@
+/*
+  - Remove this comment when this file has been changed
+  - Change path names to the correct Child template name
+  - Remove unnecessary file paths in the includeItems if files don't exist
+*/
 {
   "liveSassCompile.settings.formats": [
     {
@@ -14,6 +19,7 @@
   "liveSassCompile.settings.generateMap": true,
   "liveSassCompile.settings.includeItems": [
     "/media/templates/site/cassiopeia_roc/scss/template.scss",
-    "/media/templates/site/cassiopeia_roc/scss/template-rtl.scss"
+    "/media/templates/site/cassiopeia_roc/scss/template-rtl.scss",
+    "/media/templates/site/cassiopeia_roc/scss/user.scss"
   ]
 }
